@@ -8,5 +8,6 @@ package fr.eboespflug.util.tuple;
  *
  * Created by Etienne Boespflug on 2/12/2017.
  */
+@SuppressWarnings("WeakerAccess")
 public class Tuple {
 }

@@ -9,14 +9,14 @@ import java.util.Objects;
 // TODO() extends a Tuple abstract class providing common tuple interface ?
 
 /**
- * A Pair is a Tuple composed by two element.
+ * A Pair is a Tuple composed by two elements.
  *
  * @author Etienne Boespflug
  * @since 1.0
- * <p>
+ *
  * Created by Etienne Boespflug on 2/12/2017.
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class Pair<_Type1, _Type2> {
     /**
      * The first element of the Pair.
@@ -44,7 +44,7 @@ public class Pair<_Type1, _Type2> {
      * <p>
      * Returns false if the Object to be tested is null or is not Pair.
      * <p>
-     * Two Pairs are considered equal if and only if both first and
+     * Two pairs are considered equal if and only if both first and
      * second are equals.
      *
      * @param other the object which will be equality compared with the pair.
@@ -82,7 +82,7 @@ public class Pair<_Type1, _Type2> {
      */
     @Override
     public String toString() {
-        return "(" + first.toString() + ", " + second.toString() + ")";
+        return "(" + (first == null ? "null" : first.toString()) + ", " + (second == null ? "null" : second.toString()) + ")";
     }
 
     /**
