@@ -82,7 +82,7 @@ public class Pair<_Type1, _Type2> {
      */
     @Override
     public String toString() {
-        return "(" + first.toString() + ", " + second.toString() + ")";
+        return "(" + (first == null ? "null" : first.toString()) + ", " + (second == null ? "null" : second.toString()) + ")";
     }
 
     /**

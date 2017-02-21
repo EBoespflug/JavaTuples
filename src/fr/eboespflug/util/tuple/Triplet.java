@@ -83,7 +83,8 @@ public class Triplet<_Type1, _Type2, _Type3> {
      */
     @Override
     public String toString() {
-        return "(" + first.toString() + ", " + second.toString() + ", " + third.toString() + ")";
+        return "(" + (first == null ? "null" : first.toString()) + ", " + (second == null ? "null" : second.toString()) + ", " +
+                (third == null ? "null" : third.toString()) + ")";
     }
 
     /**
