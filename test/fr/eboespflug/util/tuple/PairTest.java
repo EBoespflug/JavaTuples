@@ -43,6 +43,7 @@ public class PairTest {
         p1.first = "World";
         assertEquals(p1, p2);
         assertNotEquals(p2, new Pair<>("Hellow", 32));
+        assertNotEquals(new Pair<>(0, 0), new Pair<>(0, 0L));
     }
 
 
@@ -63,13 +64,13 @@ public class PairTest {
     @Test
     public void testGet() throws Exception {
         Tuple pair = new Pair<>(1254L, 0.1f);
-        assertEquals(pair.count(), 2);
         assertEquals(pair.get(0), 1254L);
         assertEquals(pair.get(1), 0.1f);
 
         exception.expect(IndexOutOfBoundsException.class);
         pair.get(28);
     }
+
     // TODO() what for null element ?
     @Test
     public void testGetType() throws Exception {
