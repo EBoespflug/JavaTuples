@@ -20,12 +20,12 @@ public interface Tuple
      * index.
      * <p>
      * If {@code elementIndex} doesn't refer to an existing
-     * element in the tuple, throws OutOfBoundException.
+     * element in the tuple, throws IndexOutOfBoundsException.
      *
      * @param elementIndex the index of the element in the tuple.
      * @return the element as the specified index as an Object.
      */
-    Object get(int elementIndex);
+    Object get(int elementIndex) throws IndexOutOfBoundsException;
 
     /**
      * @return the number of element in the Tuple.
