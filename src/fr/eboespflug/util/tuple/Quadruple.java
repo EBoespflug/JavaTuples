@@ -90,7 +90,7 @@ public class Quadruple<_Type1, _Type2, _Type3, _Type4> implements Tuple {
     @Override
     public String toString() {
         return "(" + (first == null ? "null" : first.toString()) + ", " + (second == null ? "null" : second.toString()) + ", " +
-                (third == null ? "null" : third.toString()) + ")" + (fourth == null ? "null" : fourth.toString());
+                (third == null ? "null" : third.toString()) + ", " + (fourth == null ? "null" : fourth.toString()) + ")" ;
     }
 
     /**
