@@ -15,15 +15,15 @@ public class Triplet<_Type1, _Type2, _Type3> {
     /**
      * The first element of the Triplet.
      */
-    public final _Type1 first;
+    public _Type1 first;
     /**
      * The second element of the Triplet.
      */
-    public final _Type2 second;
+    public _Type2 second;
     /**
      * The third element of the Triplet.
      */
-    public final _Type3 third;
+    public _Type3 third;
 
     /**
      * Creates a new Triplet with the specified values for the

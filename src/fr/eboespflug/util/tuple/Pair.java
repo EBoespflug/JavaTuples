@@ -21,11 +21,11 @@ public class Pair<_Type1, _Type2> implements Tuple {
     /**
      * The first element of the Pair.
      */
-    public final _Type1 first;
+    public _Type1 first;
     /**
      * The second element of the Pair.
      */
-    public final _Type2 second;
+    public _Type2 second;
 
     /**
      * Creates a new Pair with the specified values for the
