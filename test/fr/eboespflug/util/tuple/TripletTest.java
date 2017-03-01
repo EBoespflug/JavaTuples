@@ -61,26 +61,26 @@ public class TripletTest {
 
     @Test
     public void testGet() throws Exception {
-        Tuple pair = new Triplet<>(1254L, 0.1f, "Tuple");
-        assertEquals(pair.get(0), 1254L);
-        assertEquals(pair.get(1), 0.1f);
-        assertEquals(pair.get(2), "Tuple");
+        Tuple t = new Triplet<>(1254L, 0.1f, "Tuple");
+        assertEquals(t.get(0), 1254L);
+        assertEquals(t.get(1), 0.1f);
+        assertEquals(t.get(2), "Tuple");
 
         exception.expect(IndexOutOfBoundsException.class);
-        pair.get(3);
+        t.get(3);
     }
 
     // TODO() what for null element ?
     @Test
     public void testGetType() throws Exception {
-        Tuple pair = new Triplet<>(1254L, 0.1f, 0);
-        assertEquals(pair.getType(0), Long.class);
-        assertEquals(pair.getType(1), Float.class);
-        assertEquals(pair.getType(2), Integer.class);
+        Tuple t = new Triplet<>(1254L, 0.1f, 0);
+        assertEquals(t.getType(0), Long.class);
+        assertEquals(t.getType(1), Float.class);
+        assertEquals(t.getType(2), Integer.class);
         assertEquals(new Triplet<>("hello", "world", " !").getType(0), String.class);
 
         exception.expect(IndexOutOfBoundsException.class);
-        pair.get(3);
+        t.get(3);
     }
 
     @Test

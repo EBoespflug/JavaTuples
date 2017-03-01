@@ -55,39 +55,41 @@ public class QuadrupleTest {
 
     @Test
     public void testCreate() throws Exception {
-        Triplet<String, Double, String> t1 = Triplet.create("Hello", 28.0, "World !");
+        Quadruple<String, Double, String, Integer> t = Quadruple.create("Hello", 28.0, "World !", 0);
 
-        assertEquals(new Triplet<>("Hello", 28.0, "World !"), t1);
+        assertEquals(new Quadruple<>("Hello", 28.0, "World !", 0), t);
     }
 
     @Test
     public void testGet() throws Exception {
-        Tuple pair = new Triplet<>(1254L, 0.1f, "Tuple");
-        assertEquals(pair.get(0), 1254L);
-        assertEquals(pair.get(1), 0.1f);
-        assertEquals(pair.get(2), "Tuple");
+        Tuple t = new Quadruple<>(1254L, 0.1f, 0, "Tuple");
+        assertEquals(t.get(0), 1254L);
+        assertEquals(t.get(1), 0.1f);
+        assertEquals(t.get(2), 0);
+        assertEquals(t.get(3), "Tuple");
 
         exception.expect(IndexOutOfBoundsException.class);
-        pair.get(3);
+        t.get(4);
     }
 
     // TODO() what for null element ?
     @Test
     public void testGetType() throws Exception {
-        Tuple pair = new Triplet<>(1254L, 0.1f, 0);
-        assertEquals(pair.getType(0), Long.class);
-        assertEquals(pair.getType(1), Float.class);
-        assertEquals(pair.getType(2), Integer.class);
-        assertEquals(new Triplet<>("hello", "world", " !").getType(0), String.class);
+        Tuple t = new Quadruple<>(1254L, 0.1f, 0, "Tuple");
+        assertEquals(t.getType(0), Long.class);
+        assertEquals(t.getType(1), Float.class);
+        assertEquals(t.getType(2), Integer.class);
+        assertEquals(t.getType(3), String.class);
+        assertEquals(new Quadruple<>("hello", "world", " !", "lol").getType(0), String.class);
 
         exception.expect(IndexOutOfBoundsException.class);
-        pair.get(3);
+        t.get(4);
     }
 
     @Test
     public void testCount() throws Exception {
-        Tuple p1 = new Triplet<>(new Triplet<>(1, 2, 3), 4, "Test");
-        assertEquals(3, p1.count());
-        assertEquals(3, ((Triplet)p1.get(0)).count());
+        Tuple t = new Quadruple<>(new Quadruple<>(1, 2, 3, 4), 5, 6, 7);
+        assertEquals(4, t.count());
+        assertEquals(4, ((Quadruple)t.get(0)).count());
     }
 }
