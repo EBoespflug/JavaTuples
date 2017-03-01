@@ -123,25 +123,6 @@ public class Pair<_Type1, _Type2> implements Tuple {
     }
 
     /**
-     * Returns the type (Class) of the element in the tuple at the
-     * specified index.
-     * <p>
-     * If {@code elementIndex} doesn't refer to an existing
-     * element in the tuple, throws IndexOutOfBoundsException.
-     * <p>
-     * For pairs, {@code elementIndex} is in {0, 1}.
-     *
-     * TODO() what for null element ?
-     *
-     * @param elementIndex the index of the element in the tuple.
-     * @return the type (Class) of the element as the specified index.
-     */
-    @Override
-    public Class getType(int elementIndex) throws IndexOutOfBoundsException {
-        return get(elementIndex).getClass();
-    }
-
-    /**
      * Returns 2 for pairs.
      *
      * @return the number of element in the Tuple.

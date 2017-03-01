@@ -11,7 +11,7 @@ import java.util.Objects;
  * Created by Etienne Boespflug on 2/21/2017.
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
-public class Triplet<_Type1, _Type2, _Type3> {
+public class Triplet<_Type1, _Type2, _Type3> implements Tuple{
     /**
      * The first element of the Triplet.
      */
@@ -104,5 +104,39 @@ public class Triplet<_Type1, _Type2, _Type3> {
      */
     public static <_Type1, _Type2, _Type3> Triplet<_Type1, _Type2, _Type3> create(_Type1 first, _Type2 second, _Type3 third) {
         return new Triplet<>(first, second, third);
+    }
+
+
+    /**
+     * Returns the element in the tuple at the specified
+     * index.
+     * <p>
+     * If {@code elementIndex} doesn't refer to an existing
+     * element in the tuple, throws IndexOutOfBoundsException.
+     * <p>
+     * For triplets, {@code elementIndex} is in {0, 1, 2}.
+     *
+     * @param elementIndex the index of the element in the tuple.
+     * @return the element as the specified index as an Object.
+     */
+    @Override
+    public Object get(int elementIndex) {
+        if(elementIndex == 0)
+            return first;
+        if(elementIndex == 1)
+            return second;
+        if(elementIndex == 2)
+            return third;
+        throw new IndexOutOfBoundsException();
+    }
+
+    /**
+     * Returns 3 for triplets.
+     *
+     * @return the number of element in the Tuple.
+     */
+    @Override
+    public int count() {
+        return 3;
     }
 }

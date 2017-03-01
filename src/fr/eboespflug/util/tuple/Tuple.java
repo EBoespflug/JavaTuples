@@ -34,10 +34,15 @@ public interface Tuple
      * If {@code elementIndex} doesn't refer to an existing
      * element in the tuple, throws IndexOutOfBoundsException.
      *
+     * TODO() what for null element ?
+     *
      * @param elementIndex the index of the element in the tuple.
      * @return the type (Class) of the element as the specified index.
      */
-    Class getType(int elementIndex) throws IndexOutOfBoundsException;
+    default Class getType(int elementIndex) throws IndexOutOfBoundsException
+    {
+        return get(elementIndex).getClass();
+    }
 
     /**
      * @return the number of element in the Tuple.
