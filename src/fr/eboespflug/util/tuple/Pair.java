@@ -17,15 +17,15 @@ import java.util.Objects;
  * Created by Etienne Boespflug on 2/12/2017.
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
-public class Pair<_Type1, _Type2> {
+public class Pair<_Type1, _Type2> implements Tuple {
     /**
      * The first element of the Pair.
      */
-    public final _Type1 first;
+    public _Type1 first;
     /**
      * The second element of the Pair.
      */
-    public final _Type2 second;
+    public _Type2 second;
 
     /**
      * Creates a new Pair with the specified values for the
@@ -99,5 +99,36 @@ public class Pair<_Type1, _Type2> {
      */
     public static <_Type1, _Type2> Pair<_Type1, _Type2> create(_Type1 first, _Type2 second) {
         return new Pair<>(first, second);
+    }
+
+    /**
+     * Returns the element in the tuple at the specified
+     * index.
+     * <p>
+     * If {@code elementIndex} doesn't refer to an existing
+     * element in the tuple, throws IndexOutOfBoundsException.
+     * <p>
+     * For pairs, {@code elementIndex} is in {0, 1}.
+     *
+     * @param elementIndex the index of the element in the tuple.
+     * @return the element as the specified index as an Object.
+     */
+    @Override
+    public Object get(int elementIndex) {
+        if(elementIndex == 0)
+            return first;
+        if(elementIndex == 1)
+            return second;
+        throw new IndexOutOfBoundsException();
+    }
+
+    /**
+     * Returns 2 for pairs.
+     *
+     * @return the number of element in the Tuple.
+     */
+    @Override
+    public int count() {
+        return 2;
     }
 }
