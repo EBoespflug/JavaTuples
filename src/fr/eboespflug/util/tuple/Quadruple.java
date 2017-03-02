@@ -75,7 +75,7 @@ public class Quadruple<_Type1, _Type2, _Type3, _Type4> implements Tuple {
     @Override
     public int hashCode() {
         return (first == null ? 0 : first.hashCode()) ^ (second == null ? 0 : second.hashCode())
-                ^ (third == null ? 0 : third.hashCode() ^ (fourth == null ? 0 : fourth.hashCode()));
+                ^ (third == null ? 0 : third.hashCode()) ^ (fourth == null ? 0 : fourth.hashCode());
     }
 
     /**
