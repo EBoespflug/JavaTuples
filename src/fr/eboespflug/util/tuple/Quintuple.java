@@ -11,7 +11,7 @@ import java.util.Objects;
  * Created by Etienne Boespflug on 3/2/2017.
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
-public class Quintuple <_Type1, _Type2, _Type3, _Type4, _Type5> {
+public class Quintuple <_Type1, _Type2, _Type3, _Type4, _Type5> implements Tuple{
     /**
      * The first element of the Quintuple.
      */
@@ -126,5 +126,42 @@ public class Quintuple <_Type1, _Type2, _Type3, _Type4, _Type5> {
     public static <_Type1, _Type2, _Type3, _Type4, _Type5> Quintuple<_Type1, _Type2, _Type3, _Type4, _Type5>
             create(_Type1 first, _Type2 second, _Type3 third, _Type4 fourth, _Type5 fifth) {
         return new Quintuple<>(first, second, third, fourth, fifth);
+    }
+
+    /**
+     * Returns the element in the tuple at the specified
+     * index.
+     * <p>
+     * If {@code elementIndex} doesn't refer to an existing
+     * element in the tuple, throws IndexOutOfBoundsException.
+     * <p>
+     * For quintuples, {@code elementIndex} is in {0, 1, 2, 3, 5}.
+     *
+     * @param elementIndex the index of the element in the tuple.
+     * @return the element as the specified index as an Object.
+     */
+    @Override
+    public Object get(int elementIndex) {
+        if(elementIndex == 0)
+            return first;
+        if(elementIndex == 1)
+            return second;
+        if(elementIndex == 2)
+            return third;
+        if(elementIndex == 3)
+            return fourth;
+        if(elementIndex == 4)
+            return fifth;
+        throw new IndexOutOfBoundsException();
+    }
+
+    /**
+     * Returns 5 for quintuples.
+     *
+     * @return the number of element in the Tuple.
+     */
+    @Override
+    public int count() {
+        return 5;
     }
 }
