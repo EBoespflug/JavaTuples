@@ -9,14 +9,14 @@ import org.junit.rules.ExpectedException;
 import static org.junit.Assert.*;
 
 /**
- * JUnit4 Test class for {@link fr.eboespflug.util.tuple.Quintuple}.
+ * JUnit4 Test class for {@link fr.eboespflug.util.tuple.Sextuple}.
  *
  * @author Etienne Boespflug
  * @since 1.0
  *
  * Created by Etienne Boespflug on 3/2/2017.
  */
-public class QuintupleTest {
+public class SextupleTest {
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 
@@ -32,8 +32,8 @@ public class QuintupleTest {
 
     @Test
     public void testEquals() throws Exception {
-        Quintuple<String, Integer, Double, String, Byte> t1 = new Quintuple<>("Hello", 28, 0.0, ";;;", (byte)1);
-        Quintuple<String, Integer, Double, String, Byte> t2 = new Quintuple<>("World", 32, 0.1, "$", (byte)0);
+        Sextuple<String, Integer, Double, String, Byte, Integer> t1 = new Sextuple<>("Hello", 28, 0.0, ";;;", (byte)1, 0);
+        Sextuple<String, Integer, Double, String, Byte,Integer> t2 = new Sextuple<>("World", 32, 0.1, "$", (byte)0, 42);
 
         assertNotEquals(t1, t2);
         t1.second = 32;
@@ -41,59 +41,63 @@ public class QuintupleTest {
         t1.third = 0.1;
         t1.fourth = "$";
         t1.fifth = (byte)0;
+        t1.sixth = 42;
         assertEquals(t1, t2);
-        assertNotEquals(t2, new Quintuple<>("Hello", 32, 0.1, "£", (byte)0));
-        assertNotEquals(new Quintuple<>(0, 0, 0, 0, 0), new Quintuple<>(0, 0L, 0, 0, 0L));
+        assertNotEquals(t2, new Sextuple<>("Hello", 32, 0.1, "£", (byte)0, 42));
+        assertNotEquals(new Sextuple<>(0, 0, 0, 0, 0, 0), new Sextuple<>(0, 0L, 0, 0, 0L, (byte)0));
     }
 
 
     @Test
     public void testToString() throws Exception {
-        Quintuple<String, Pair<String, Integer>, String, Integer, Double> t = new Quintuple<>("Hello", new Pair<>("World", 42), null, 73, 0.1);
+        Sextuple<String, Pair<String, Integer>, String, Integer, Double, Byte> t =
+                new Sextuple<>("Hello", new Pair<>("World", 42), null, 73, 0.1, (byte)0);
 
-        assertEquals("(Hello, (World, 42), null, 73, 0.1)", t.toString());
+        assertEquals("(Hello, (World, 42), null, 73, 0.1, 0)", t.toString());
     }
 
     @Test
     public void testCreate() throws Exception {
-        Quintuple<String, Double, String, Integer, Byte> t = Quintuple.create("Hello", 28.0, "World !", 0, (byte)25);
+        Sextuple<String, Double, String, Integer, Byte, Float> t = Sextuple.create("Hello", 28.0, "World !", 0, (byte)25, 0f);
 
-        assertEquals(new Quintuple<>("Hello", 28.0, "World !", 0, (byte)25), t);
+        assertEquals(new Sextuple<>("Hello", 28.0, "World !", 0, (byte)25, 0f), t);
     }
 
     @Test
     public void testGet() throws Exception {
-        Tuple t = new Quintuple<>(1254L, 0.1f, 0, "Tuple", 0);
+        Tuple t = new Sextuple<>(1254L, 0.1f, 0, "Tuple", 0, 0.0);
         assertEquals(t.get(0), 1254L);
         assertEquals(t.get(1), 0.1f);
         assertEquals(t.get(2), 0);
         assertEquals(t.get(3), "Tuple");
         assertEquals(t.get(4), 0);
+        assertEquals(t.get(5), 0.0);
 
         exception.expect(IndexOutOfBoundsException.class);
-        t.get(5);
+        t.get(6);
     }
 
     // TODO() what for null element ?
     @Test
     public void testGetType() throws Exception {
-        Tuple t = new Quintuple<>(1254L, 0.1f, 0, "Tuple", (byte)0);
+        Tuple t = new Sextuple<>(1254L, 0.1f, 0, "Tuple", "Type", (byte)0);
         assertEquals(t.getType(0), Long.class);
         assertEquals(t.getType(1), Float.class);
         assertEquals(t.getType(2), Integer.class);
         assertEquals(t.getType(3), String.class);
-        assertEquals(t.getType(4), Byte.class);
-        assertNotEquals(t.getType(4), Integer.class);
-        assertEquals(new Quintuple<>("hello", "world", " !", "lol", (byte)0).getType(3), String.class);
+        assertEquals(t.getType(4), String.class);
+        assertEquals(t.getType(5), Byte.class);
+        assertNotEquals(t.getType(5), Integer.class);
+        assertEquals(new Sextuple<>("hello", "world", " !", "lol", (byte)0, 0).getType(5), Integer.class);
 
         exception.expect(IndexOutOfBoundsException.class);
-        t.get(5);
+        t.get(6);
     }
 
     @Test
     public void testCount() throws Exception {
-        Tuple t = new Quintuple<>(new Quintuple<>(1, 2, 3, 4, 5), 5, 6, 7, 8);
-        assertEquals(5, t.count());
-        assertEquals(5, ((Quintuple)t.get(0)).count());
+        Tuple t = new Sextuple<>(1, 2, 3, 4, 5, new Sextuple<>(1, 2, 3, 4, 5, 6));
+        assertEquals(6, t.count());
+        assertEquals(6, ((Sextuple)t.get(5)).count());
     }
 }
