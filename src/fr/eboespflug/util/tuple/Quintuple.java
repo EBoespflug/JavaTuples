@@ -11,7 +11,7 @@ import java.util.Objects;
  * Created by Etienne Boespflug on 3/2/2017.
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
-public class Quintuple <_Type1, _Type2, _Type3, _Type4, _Type5> implements Tuple{
+public class Quintuple <_Type1, _Type2, _Type3, _Type4, _Type5> implements Tuple {
     /**
      * The first element of the Quintuple.
      */
@@ -40,8 +40,8 @@ public class Quintuple <_Type1, _Type2, _Type3, _Type4, _Type5> implements Tuple
      * @param first  the first value of the Quintuple.
      * @param second the second value of the Quintuple.
      * @param third  the third value of the Quintuple.
-     * @param fourth the third value of the Quintuple.
-     * @param fifth the third value of the Quintuple.
+     * @param fourth the fourth value of the Quintuple.
+     * @param fifth the fifth value of the Quintuple.
      */
     public Quintuple(_Type1 first, _Type2 second, _Type3 third, _Type4 fourth, _Type5 fifth) {
         this.first = first;
@@ -135,7 +135,7 @@ public class Quintuple <_Type1, _Type2, _Type3, _Type4, _Type5> implements Tuple
      * If {@code elementIndex} doesn't refer to an existing
      * element in the tuple, throws IndexOutOfBoundsException.
      * <p>
-     * For quintuples, {@code elementIndex} is in {0, 1, 2, 3, 5}.
+     * For quintuples, {@code elementIndex} is in {0, 1, 2, 3, 4}.
      *
      * @param elementIndex the index of the element in the tuple.
      * @return the element as the specified index as an Object.
