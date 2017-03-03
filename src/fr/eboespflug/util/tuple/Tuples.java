@@ -10,7 +10,6 @@ package fr.eboespflug.util.tuple;
  */
 @SuppressWarnings("WeakerAccess")
 public class Tuples {
-
     public static <_Type1, _Type2> Pair create(_Type1 a, _Type2 b) {
         return new Pair<>(a, b);
     }
@@ -21,5 +20,9 @@ public class Tuples {
 
     public static <_Type1, _Type2, _Type3, _Type4> Quadruple create(_Type1 a, _Type2 b, _Type3 c, _Type4 d) {
         return new Quadruple<>(a, b, c, d);
+    }
+
+    public static <_Type1, _Type2, _Type3, _Type4, _Type5> Quintuple create(_Type1 a, _Type2 b, _Type3 c, _Type4 d, _Type5 e) {
+        return new Quintuple<>(a, b, c, d, e);
     }
 }
