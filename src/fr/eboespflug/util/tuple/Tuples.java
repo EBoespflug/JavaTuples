@@ -8,7 +8,7 @@ package fr.eboespflug.util.tuple;
  *
  * Created by Etienne Boespflug on 2/12/2017.
  */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class Tuples {
     public static <_Type1> Single create(_Type1 a) {
         return new Single<>(a);
