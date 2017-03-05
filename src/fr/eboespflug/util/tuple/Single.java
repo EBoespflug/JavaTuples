@@ -10,7 +10,8 @@ import java.util.Objects;
  *
  * Created by Etienne Boespflug on 3/5/2017.
  */
-public class Single <_Type1> {
+@SuppressWarnings({"WeakerAccess", "unused"})
+public class Single <_Type1> implements Tuple {
 
     /**
      * The first and only element of the Single.
@@ -85,5 +86,34 @@ public class Single <_Type1> {
      */
     public static <_Type1> Single<_Type1> create(_Type1 first) {
         return new Single<>(first);
+    }
+
+    /**
+     * Returns the element in the tuple at the specified
+     * index.
+     * <p>
+     * If {@code elementIndex} doesn't refer to an existing
+     * element in the tuple, throws IndexOutOfBoundsException.
+     * <p>
+     * For pairs, {@code elementIndex} is in {0}.
+     *
+     * @param elementIndex the index of the element in the tuple.
+     * @return the element as the specified index as an Object.
+     */
+    @Override
+    public Object get(int elementIndex) {
+        if(elementIndex == 0)
+            return first;
+        throw new IndexOutOfBoundsException();
+    }
+
+    /**
+     * Returns 1 for singles.
+     *
+     * @return the number of element in the Single.
+     */
+    @Override
+    public int count() {
+        return 1;
     }
 }
