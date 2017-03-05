@@ -36,7 +36,7 @@ public class Quadruple<_Type1, _Type2, _Type3, _Type4> implements Tuple {
      * @param first  the first value of the Quadruple.
      * @param second the second value of the Quadruple.
      * @param third  the third value of the Quadruple.
-     * @param fourth the third value of the Quadruple.
+     * @param fourth the fourth value of the Quadruple.
      */
     public Quadruple(_Type1 first, _Type2 second, _Type3 third, _Type4 fourth) {
         this.first = first;
@@ -75,7 +75,7 @@ public class Quadruple<_Type1, _Type2, _Type3, _Type4> implements Tuple {
     @Override
     public int hashCode() {
         return (first == null ? 0 : first.hashCode()) ^ (second == null ? 0 : second.hashCode())
-                ^ (third == null ? 0 : third.hashCode() ^ (fourth == null ? 0 : fourth.hashCode()));
+                ^ (third == null ? 0 : third.hashCode()) ^ (fourth == null ? 0 : fourth.hashCode());
     }
 
     /**
