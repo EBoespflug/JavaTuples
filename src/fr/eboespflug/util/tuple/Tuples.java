@@ -10,6 +10,10 @@ package fr.eboespflug.util.tuple;
  */
 @SuppressWarnings("WeakerAccess")
 public class Tuples {
+    public static <_Type1> Single create(_Type1 a) {
+        return new Single<>(a);
+    }
+
     public static <_Type1, _Type2> Pair create(_Type1 a, _Type2 b) {
         return new Pair<>(a, b);
     }
