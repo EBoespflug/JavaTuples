@@ -33,4 +33,8 @@ public class Tuples {
     public static <_Type1, _Type2, _Type3, _Type4, _Type5, _Type6> Sextuple create(_Type1 a, _Type2 b, _Type3 c, _Type4 d, _Type5 e, _Type6 f) {
         return new Sextuple<>(a, b, c, d, e, f);
     }
+
+    public static <_Type1, _Type2, _Type3, _Type4, _Type5, _Type6, _Type7> Septuple create(_Type1 a, _Type2 b, _Type3 c, _Type4 d, _Type5 e, _Type6 f, _Type7 g) {
+        return new Septuple<>(a, b, c, d, e, f, g);
+    }
 }

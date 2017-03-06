@@ -49,4 +49,9 @@ public class TuplesTest {
         assertEquals(t, Sextuple.create(0L, "1", (byte)0, 0.0, "a", 0f));
     }
 
+    @Test
+    public void createTest_7() {
+        Tuple t = Tuples.create(0L, "1", (byte)0, 0.0, "a", 0f, Long.MAX_VALUE);
+        assertEquals(t, Septuple.create(0L, "1", (byte)0, 0.0, "a", 0f, Long.MAX_VALUE));
+    }
 }
