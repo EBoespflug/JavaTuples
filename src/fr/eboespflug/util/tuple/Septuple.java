@@ -10,6 +10,7 @@ import java.util.Objects;
  *
  * Created by Etienne Boespflug on 3/6/2017.
  */
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class Septuple <_Type1, _Type2, _Type3, _Type4, _Type5, _Type6, _Type7> implements Tuple{
     /**
      * The first element of the Septuple.
