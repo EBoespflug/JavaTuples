@@ -10,7 +10,7 @@ import java.util.Objects;
  *
  * Created by Etienne Boespflug on 3/6/2017.
  */
-public class Septuple <_Type1, _Type2, _Type3, _Type4, _Type5, _Type6, _Type7> {
+public class Septuple <_Type1, _Type2, _Type3, _Type4, _Type5, _Type6, _Type7> implements Tuple{
     /**
      * The first element of the Septuple.
      */
@@ -145,5 +145,47 @@ public class Septuple <_Type1, _Type2, _Type3, _Type4, _Type5, _Type6, _Type7> {
     public static <_Type1, _Type2, _Type3, _Type4, _Type5, _Type6, _Type7> Septuple<_Type1, _Type2, _Type3, _Type4, _Type5, _Type6, _Type7>
     create(_Type1 first, _Type2 second, _Type3 third, _Type4 fourth, _Type5 fifth, _Type6 sixth, _Type7 seventh) {
         return new Septuple<>(first, second, third, fourth, fifth, sixth, seventh);
+    }
+
+
+    /**
+     * Returns the element in the tuple at the specified
+     * index.
+     * <p>
+     * If {@code elementIndex} doesn't refer to an existing
+     * element in the tuple, throws IndexOutOfBoundsException.
+     * <p>
+     * For septuples, {@code elementIndex} is in {0, 1, 2, 3, 4, 5, 6}.
+     *
+     * @param elementIndex the index of the element in the tuple.
+     * @return the element as the specified index as an Object.
+     */
+    @Override
+    public Object get(int elementIndex) {
+        if(elementIndex == 0)
+            return first;
+        if(elementIndex == 1)
+            return second;
+        if(elementIndex == 2)
+            return third;
+        if(elementIndex == 3)
+            return fourth;
+        if(elementIndex == 4)
+            return fifth;
+        if(elementIndex == 5)
+            return sixth;
+        if(elementIndex == 6)
+            return seventh;
+        throw new IndexOutOfBoundsException();
+    }
+
+    /**
+     * Returns 7 for septuples.
+     *
+     * @return the number of element in the Tuple.
+     */
+    @Override
+    public int count() {
+        return 7;
     }
 }
