@@ -166,7 +166,7 @@ public class Sextuple <_Type1, _Type2, _Type3, _Type4, _Type5, _Type6> implement
     }
 
     /**
-     * Returns 6 for sextuple.
+     * Returns 6 for sextuples.
      *
      * @return the number of element in the Tuple.
      */
