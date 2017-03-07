@@ -1,5 +1,7 @@
 package fr.eboespflug.util.tuple;
 
+import java.util.Objects;
+
 /**
  * /TMP/
  *
@@ -36,5 +38,13 @@ public class Tuples {
 
     public static <_Type1, _Type2, _Type3, _Type4, _Type5, _Type6, _Type7> Septuple create(_Type1 a, _Type2 b, _Type3 c, _Type4 d, _Type5 e, _Type6 f, _Type7 g) {
         return new Septuple<>(a, b, c, d, e, f, g);
+    }
+
+    public static boolean equals(Tuple t1, Tuple t2) {
+        int minCount = Math.min(t1.count(), t2.count());
+        for(int i = 0; i < minCount; ++i)
+            if(!Objects.equals(t1.get(i), t2.get(i)))
+                return false;
+        return true;
     }
 }

@@ -14,6 +14,25 @@ import static org.junit.Assert.*;
  */
 public class TuplesTest {
     @Test
+    public void equalsTest() {
+        Tuple t1 = new Quadruple<>(0, 1, 2, 3);
+        Tuple t2 = new Quadruple<>(0L, 1L, 2L, 3L);
+
+        assertEquals(false, Tuples.equals(t1, t2));
+
+        Tuple t3 = new Triplet<>(0L, 1L, 2L);
+
+        assertEquals(true, Tuples.equals(t2, t3));
+
+        Tuple t4 = new Pair<>(0, 1);
+        assertEquals(true, Tuples.equals(t1, t4));
+
+        Tuple t5 = new Pair<>(1, 1);
+
+        assertEquals(false, Tuples.equals(t4, t5));
+    }
+
+    @Test
     public void createTest_1() {
         Tuple t = Tuples.create(0L);
         assertEquals(t, Single.create(0L));
