@@ -51,7 +51,7 @@ public class Single <_Type1> implements Tuple {
     /**
      * Generates a hash code for the Single.
      * <p>
-     * The generated hash code is calculated using the hashe of the
+     * The generated hash code is calculated using the hash of the
      * two element.
      *
      * @return a hash for the Single.
